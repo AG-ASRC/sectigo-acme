@@ -1,0 +1,16 @@
+ServerUrl=https://acme.sectigo.com/v2/OV
+WildcardDomains=domain.tld
+CertificateStore=My
+CertificateFriendlyName=
+WorkerURL=
+CoolDownBeforeCheckChallenge=120
+TaskName=ACME Certificate Check
+TaskDescription=Daily certificate check and renewal
+IISSiteID=1
+EventSource=ACME-Certificate
+MaxDays=10
+WACSPath=C:\scripts\acme\tools\win-acme\wacs.exe
+TaskPath=C:\scripts\acme\task.ps1
+AcmeHookPath=C:\scripts\acme\acme-hook.ps1
+IISScriptPath=C:\scripts\acme\iis.ps1
+CertbotPath=C:\scripts\acme\certbot.ps1
