@@ -36,7 +36,7 @@ foreach ($Binding in $Bindings) {
 
     $Binding.AddSslCertificate(
         $Cert.Thumbprint,
-        "WebHosting"
+        "$($configs.CertificateStore)"
     )
 
     Write-EventLog `

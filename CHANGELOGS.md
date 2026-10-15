@@ -19,9 +19,11 @@ Ce fichier récapitule les changements notables du projet, du plus récent au pl
 ### Modifié
 
 - Séparation du plugin WACS (`certificatestore`) et du magasin cible (`CertificateStore`, par défaut `My`).
+- Association du certificat aux liaisons HTTPS IIS à partir du magasin configuré, plutôt que du magasin `WebHosting` imposé.
 - Chargement des paramètres Windows avec préservation des antislashs dans les chemins de fichiers.
 - Résolution de l'exécutable WACS, des scripts et du répertoire de travail à partir des chemins configurés.
 - Mise à jour de la tâche planifiée existante possible via `make-task.ps1`.
+- Documentation du paramètre `CertificateStore`, des chemins de configuration et du besoin de privilèges élevés pour accéder au magasin ordinateur.
 
 ### Corrigé
 

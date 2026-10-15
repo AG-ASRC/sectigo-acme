@@ -1,4 +1,4 @@
-ServerUrl=https://acme.sectigo.com/v2/OV
+ServerUrl=
 WildcardDomains=domain.tld
 CertificateStore=My
 CertificateFriendlyName=
