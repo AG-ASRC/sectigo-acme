@@ -41,12 +41,13 @@ flowchart LR
     Worker --> DNS
 ```
 
-Le code du Cloudflare Worker n'est pas inclus dans ce dépôt. Le Worker doit accepter les requêtes `POST /dns` et `DELETE /dns` authentifiées par l'en-tête `X-API-Token`.
+L'implémentation du Cloudflare Worker est disponible dans [cloudflare/worker.js](cloudflare/worker.js). Elle expose les opérations DNS-01 `POST /dns` et `DELETE /dns`, protégées par l'en-tête `X-API-Token`. Voir la [documentation du Worker](docs/cloudflare-worker.md) pour ses méthodes, ses limites et sa configuration.
 
 ## Documentation par plateforme
 
 - [Guide Windows](docs/windows.md) — configuration WACS, magasin Windows, IIS et tâche planifiée.
 - [Guide Linux](docs/linux.md) — Certbot, hooks DNS, configuration, secrets et cron.
+- [Cloudflare Worker](docs/cloudflare-worker.md) — routes DNS-01, restrictions et secrets requis.
 
 ## Secrets et configuration
 

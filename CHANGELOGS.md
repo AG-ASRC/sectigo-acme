@@ -2,6 +2,36 @@
 
 Ce fichier suit les principes de [Keep a Changelog](https://keepachangelog.com/) et le versionnement sémantique. Chaque version utilise la même structure : `Added`, `Changed`, `Fixed`, `Security`, `Deprecated` et `Removed`.
 
+## [1.4.0] - 2026-10-19
+
+Documentation du Cloudflare Worker utilisé pour les challenges DNS-01.
+
+### Added
+
+- Worker Cloudflare pour créer et supprimer les enregistrements TXT des challenges DNS-01.
+- Documentation dédiée des routes, du format des requêtes, des restrictions et des secrets nécessaires au Worker.
+- Références au code et à la documentation du Worker depuis le README.
+
+### Changed
+
+- README mis à jour pour indiquer que l'implémentation du Worker est incluse dans le dépôt.
+
+### Fixed
+
+- Aucun correctif distinct dans cette version.
+
+### Security
+
+- Aucun changement de sécurité dans cette version.
+
+### Deprecated
+
+- Aucun élément déprécié.
+
+### Removed
+
+- Aucune fonctionnalité retirée.
+
 ## [1.3.0] - 2026-10-15
 
 Automatisation Linux et documentation multiplateforme.
