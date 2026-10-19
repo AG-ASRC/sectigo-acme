@@ -57,6 +57,7 @@ if ($Action -eq "delete") {
 
     $Body = @{
         fqdn = $RecordName
+        value = $Token
     } | ConvertTo-Json -Compress
 
     Invoke-RestMethod `

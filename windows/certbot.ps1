@@ -14,7 +14,7 @@ $Wacs = $configs.WACSPath
     --dnscreatescript "$($configs.AcmeHookPath)" `
     --dnscreatescriptarguments "create {RecordName} {Token}" `
     --dnsdeletescript "$($configs.AcmeHookPath)" `
-    --dnsdeletescriptarguments "delete {RecordName}" `
+    --dnsdeletescriptarguments "delete {RecordName} {Token}" `
     --store "certificatestore" `
     --certificatestore "$($configs.CertificateStore)" `
     --friendlyname "$($configs.CertificateFriendlyName)" `

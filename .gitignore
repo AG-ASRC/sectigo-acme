@@ -1,2 +1,4 @@
 windows/secrets.ini
 windows/config.ini
+linux/config.env
+linux/secrets.env

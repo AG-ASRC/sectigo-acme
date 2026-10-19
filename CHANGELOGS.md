@@ -1,37 +1,119 @@
 # Changelog
 
-Ce fichier récapitule les changements notables du projet, du plus récent au plus ancien.
+Ce fichier suit les principes de [Keep a Changelog](https://keepachangelog.com/) et le versionnement sémantique. Chaque version utilise la même structure : `Added`, `Changed`, `Fixed`, `Security`, `Deprecated` et `Removed`.
 
-## [Unreleased]
+## [1.3.0] - 2026-10-15
 
-### Ajouté
+Automatisation Linux et documentation multiplateforme.
 
-- Automatisation Windows de l'émission et du renouvellement de certificats Sectigo avec win-acme (WACS).
-- Validation de domaine ACME par challenge DNS-01 : le hook PowerShell transmet la création et la suppression des enregistrements TXT à un Cloudflare Worker.
-- Vérification quotidienne du certificat dans le magasin de certificats de l'ordinateur et déclenchement de l'émission si le certificat est absent.
-- Déclenchement du renouvellement lorsque l'expiration approche du seuil configurable `MaxDays`.
-- Enregistrement du certificat dans le magasin Windows sélectionné et mise à jour de la liaison HTTPS du site IIS configuré.
-- Journalisation des événements de création, de renouvellement, d'absence de certificat et d'erreur dans le journal Application de Windows.
-- Tâche planifiée quotidienne exécutée sous `SYSTEM` avec le niveau de privilèges maximal.
-- Modèles de configuration `config.ini.example` et `secrets.ini.example`, avec exclusion des fichiers locaux contenant la configuration et les secrets.
-- Documentation de l'architecture, des prérequis, de l'installation et des responsabilités de chaque script Windows dans le README.
+### Added
 
-### Modifié
+- Parcours Linux basé sur Certbot pour demander des certificats Sectigo avec validation DNS-01 via Cloudflare Worker.
+- Scripts cron Linux, modèles de configuration et de secrets, et guides de documentation séparés par plateforme.
+- Schéma d'architecture multiplateforme dans le README.
 
-- Séparation du plugin WACS (`certificatestore`) et du magasin cible (`CertificateStore`, par défaut `My`).
-- Association du certificat aux liaisons HTTPS IIS à partir du magasin configuré, plutôt que du magasin `WebHosting` imposé.
-- Chargement des paramètres Windows avec préservation des antislashs dans les chemins de fichiers.
-- Résolution de l'exécutable WACS, des scripts et du répertoire de travail à partir des chemins configurés.
-- Mise à jour de la tâche planifiée existante possible via `make-task.ps1`.
-- Documentation du paramètre `CertificateStore`, des chemins de configuration et du besoin de privilèges élevés pour accéder au magasin ordinateur.
+### Changed
 
-### Corrigé
+- `crontab.sh` contrôle l'expiration selon `MaxDays` avant d'appeler `CerbotPath`.
+- README recentré sur la vue d'ensemble et les guides Windows/Linux.
+- Documentation Linux mise à jour pour décrire les scripts présents et leurs limites.
 
-- L'absence de certificat n'interrompt plus le contrôle : elle déclenche une demande de création.
-- Suppression d'une clé de traduction en double qui empêchait le chargement de `translation.ini`.
-- Formatage des messages de journalisation utilisant le domaine, le magasin et le nombre de jours avant expiration.
+### Fixed
 
-### Limitations connues
+- Référence à `CerbotPath` dans le contrôle cron harmonisée avec la clé du modèle Linux.
 
-- Le Cloudflare Worker est un service externe : son code n'est pas inclus dans le dépôt.
-- Les scripts et la procédure d'installation Linux ne sont pas encore présents.
+### Security
+
+- Aucun changement de sécurité dans cette version.
+
+### Deprecated
+
+- Aucun élément déprécié.
+
+### Removed
+
+- Ancienne indication selon laquelle l'automatisation Linux était absente.
+- Instructions détaillées des plateformes retirées du README et déplacées vers des guides dédiés.
+
+## [1.2.0] - 2026-10-15
+
+### Added
+
+- Paramètre `CertificateStore` pour configurer le magasin cible du certificat.
+
+### Changed
+
+- WACS sélectionne le plugin `certificatestore` séparément du magasin cible configuré.
+- La documentation précise l'utilisation du magasin ordinateur et les privilèges requis.
+
+### Fixed
+
+- IIS associe maintenant le certificat en utilisant le magasin configuré.
+
+### Security
+
+- Aucun changement de sécurité dans cette version.
+
+### Deprecated
+
+- Aucun élément déprécié.
+
+### Removed
+
+- Dépendance au magasin IIS `WebHosting` imposé.
+
+## [1.1.0] - 2026-10-14
+
+### Added
+
+- Émission et renouvellement des certificats Sectigo sous Windows avec win-acme (WACS).
+- Validation ACME DNS-01 via un hook PowerShell et un Cloudflare Worker.
+- Vérification quotidienne du certificat, émission lorsqu'il est absent et renouvellement au seuil `MaxDays`.
+- Mise à jour des liaisons HTTPS IIS, journalisation des événements Windows et tâche planifiée sous `SYSTEM`.
+- Modèles de configuration et de secrets Windows.
+
+### Changed
+
+- README complété avec l'architecture Windows, les prérequis et les instructions d'utilisation.
+
+### Fixed
+
+- Aucun correctif distinct dans cette version.
+
+### Security
+
+- Aucun changement de sécurité dans cette version.
+
+### Deprecated
+
+- Aucun élément déprécié.
+
+### Removed
+
+- Aucun élément retiré.
+
+## [1.0.0] - 2026-10-14
+
+### Added
+
+- Initialisation du dépôt et ajout de la licence.
+
+### Changed
+
+- Aucun changement.
+
+### Fixed
+
+- Aucun correctif.
+
+### Security
+
+- Aucun changement de sécurité.
+
+### Deprecated
+
+- Aucun élément déprécié.
+
+### Removed
+
+- Aucun élément retiré.
