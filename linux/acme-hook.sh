@@ -13,7 +13,7 @@ case "$ACTION" in
 
   create)
 
-     curl -s -X POST "${WORKER_URL}/dns" \
+     curl --connect-timeout 10 --max-time 60 -s -X POST "${WORKER_URL}/dns" \
       -H "X-API-Token: ${API_TOKEN}" \
       -H "Content-Type: application/json" \
       -d "{
@@ -27,7 +27,7 @@ case "$ACTION" in
 
   delete)
 
-    curl -s -X DELETE "${WORKER_URL}/dns" \
+    curl --connect-timeout 10 --max-time 60 -s -X DELETE "${WORKER_URL}/dns" \
       -H "X-API-Token: ${API_TOKEN}" \
       -H "Content-Type: application/json" \
       -d "{

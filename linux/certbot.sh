@@ -13,6 +13,7 @@ fi
 LOG_FILE="${LogsPath}"
 
 if certbot certonly \
+        --non-interactive \
         --register-unsafely-without-email \
         --force-renewal \
         --manual \
